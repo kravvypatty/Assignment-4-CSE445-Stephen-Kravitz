@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ZipType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:element name="NationalParks">
     <xs:complexType>
       <xs:sequence>
@@ -15,7 +21,7 @@
                     <xs:element name="Street" type="xs:string"/>
                     <xs:element name="City" type="xs:string"/>
                     <xs:element name="State" type="xs:string"/>
-                    <xs:element name="Zip" type="xs:int"/>
+                    <xs:element name="Zip" type="ZipType"/>
                   </xs:sequence>
                   <xs:attribute name="NearestAirport" type="xs:string" use="required"/>
                 </xs:complexType>
